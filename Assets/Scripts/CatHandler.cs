@@ -16,8 +16,16 @@ public class CatHandler : 	MonoBehaviour,
 
 	private TrackableBehaviour mTrackableBehaviour;
 	private VirtualButtonBehaviour btnBehaviour;
-	private bool isReleased;
-	private bool btnPressed;
+
+	public bool isReleased {
+		get;
+		private set;
+	}
+
+	public bool exist {
+		get;
+		private set;
+	}
 
 	#endregion // PRIVATE_MEMBER_VARIABLES
 
@@ -94,6 +102,7 @@ public class CatHandler : 	MonoBehaviour,
 	{
 		showObj (cat, true);
 		showObj (releaseBtn, true);
+		exist = true;
 	}
 		
 	private void OnTrackingLost()
@@ -103,6 +112,7 @@ public class CatHandler : 	MonoBehaviour,
 		}
 
 		showObj (releaseBtn, false);
+		exist = false;
 	}
 
 	private void showObj(GameObject obj, bool show) {
